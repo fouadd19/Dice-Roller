@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Dice Rolle</string>
+    <string name="Role_Dices">Role ALL Dices</string>
+    <string name="Role_Next_Dice">Role Next Dice</string>
+    <string name="History">History</string>
+
+</resources>
