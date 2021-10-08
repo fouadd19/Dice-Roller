@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
+import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONArray
@@ -21,11 +22,11 @@ class History : AppCompatActivity() {
         NewRecycleView.layoutManager = LinearLayoutManager(this)
         NewRecycleView.setHasFixedSize(true)
         List = intent.getSerializableExtra("List") as ArrayList<ListItem>
-        Get(List)
+        Get(List,NewRecycleView)
         NewRecycleView.adapter = Adapter(List)
     }
 
-    private fun Get(List : ArrayList<ListItem>){
+    private fun Get(List : ArrayList<ListItem>, NewRecycleView:RecyclerView){
         // ...
 
         // Instantiate the RequestQueue.
@@ -33,11 +34,11 @@ class History : AppCompatActivity() {
         val url = "https://615edba6af365900172045eb.mockapi.io/List-Items"
 
         // Request a string response from the provided URL.
-        val postRequest = JsonObjectRequest(Request.Method.GET, url,
+        val postRequest = JsonArrayRequest(Request.Method.GET, url,
                 null,
                 {
                     response -> Log.d("fouad", response.toString())
-                    val response2 = JSONArray(response)
+                    val response2 = JSONArray(response.toString())
                     Log.d("fouad",response2.toString())
                     for (i in 0 until response2.length())
                     {
@@ -51,6 +52,7 @@ class History : AppCompatActivity() {
                         }
                         List.add(ListItem("",temp))
                     }
+                    NewRecycleView.adapter!!.notifyDataSetChanged()
                 },
                 {
                     error -> Log.d("fouad", error.toString())
