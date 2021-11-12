@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "288626470805",
+    "project_id": "dice-rolle",
+    "storage_bucket": "dice-rolle.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288626470805:android:038ae9eb9fcd8bd7e3509c",
+        "android_client_info": {
+          "package_name": "com.example.dicerolle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "288626470805-rdhavscm1s7fm09uoh9c90uq7kl4j0t7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsb_5gaXulReJ9adY6skHccP_daFffYlk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "288626470805-rdhavscm1s7fm09uoh9c90uq7kl4j0t7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,7 +1,11 @@
 package com.example.dicerolle
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
 import android.content.Intent
 import android.opengl.Visibility
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -26,6 +30,8 @@ import kotlin.random.Random
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        createChannel()
     }
 
 
@@ -129,6 +135,22 @@ import kotlin.random.Random
 
       // Add the request to the RequestQueue.
       queue.add(postRequest)
+      }
+
+      private fun createChannel()
+      {
+          if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.O) {
+              val name = "super cool channel name"
+              val descriptionText = "informative channel description"
+              val importance = NotificationManager.IMPORTANCE_DEFAULT
+              val channel = NotificationChannel(notification.CHANNEL_ID, name, importance).apply {
+                  description = descriptionText
+              }
+// Register the channel with the system
+              val notificationManager: NotificationManager= getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+              notificationManager.createNotificationChannel(channel)
+          }
+
       }
 
 
